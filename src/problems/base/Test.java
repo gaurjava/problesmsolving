@@ -1,4 +1,4 @@
-package src.problems.base;
+package problems.base;
 
 public class Test{
  
