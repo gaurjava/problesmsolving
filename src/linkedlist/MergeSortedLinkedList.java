@@ -4,6 +4,7 @@ public class MergeSortedLinkedList {
 
 	public static void main(String[] args) {
 		LinkedNode node = LinkedNode.getList();
+		mergeList(node, node);
 
 	}
 
