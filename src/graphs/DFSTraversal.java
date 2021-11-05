@@ -1,11 +1,13 @@
 package graphs;
 
 import java.util.List;
+import java.util.Stack;
 
 public class DFSTraversal {
 
 	public static void main(String[] args) {
-		dfstraversal(Graph.getGraph());
+		//dfstraversal(Graph.getGraph());
+		dfsIterative(Graph.getGraph());
 	}
 
 	public static void dfstraversal(Graph graph) {
@@ -30,5 +32,28 @@ public class DFSTraversal {
 			}
 		}
 		
+	}
+	
+	public static void dfsIterative(Graph graph) {
+		
+		int v = graph.adj.size();
+		boolean visited[] = new boolean[v];
+		
+		Stack<Integer> stack = new Stack<Integer>();
+		stack.push(1);
+		visited[1] =true;
+		
+		while(!stack.isEmpty()) {
+			int node = stack.pop();
+			System.out.print( node +" ");
+			List<Integer> ads = graph.adj.get(node);
+			
+			for(int i=0;i<ads.size();i++) {
+				if(!visited[ads.get(i)]) {
+					visited[ads.get(i)] = true;
+					stack.push(ads.get(i));
+				}
+			}
+		}
 	}
 }
